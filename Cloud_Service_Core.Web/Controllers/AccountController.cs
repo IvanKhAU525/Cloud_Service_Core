@@ -16,7 +16,7 @@ using Cloud_Service_Core.Web.Services;
 
 namespace Cloud_Service_Core.Web.Controllers
 {
-    [Authorize]
+    [Authorize]                                                                                                        
     [Route("[controller]/[action]")]
     public class AccountController : Controller
     {

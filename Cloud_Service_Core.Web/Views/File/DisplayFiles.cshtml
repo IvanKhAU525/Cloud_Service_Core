@@ -1,0 +1,71 @@
+﻿@model Cloud_Service_Core.Web.Controllers.FilesNFolders
+
+@{
+    ViewBag.Title = "DisplayFiles";
+    Layout = "~/Views/Shared/_LayoutMaster.cshtml";
+}
+
+@Html.Partial("~/Views/Home/ContextMenu.cshtml")
+
+<div id="Grid" class="container">
+    @{
+        if (Model.Files != null ||
+            Model.Directories != null)
+        {
+            if (Model.Directories != null)
+            {
+                foreach (var directories in Model.Directories)
+                {
+                    <div class="row">
+                        @foreach (var directory in directories)
+                        {
+                            <div class="align-self-start">
+                                <div class="container">  @*vis-chckbx*@
+                                    <input type="checkbox" class="row">
+                                    <a class="btn btn-neutral row" href="DisplayFiles?folder=@directory">
+                                        <div id="profile" class="container file-size">
+                                            <img class="row" src="~/Icons/FilesAndFolder/folder.ico" />
+                                            <h6 class="text-truncate row">@directory</h6>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                }
+            }
+
+            if (Model.Files != null)
+            {
+                foreach (var files in Model.Files)
+                {
+                    <div class="row">
+                        @foreach (var file in files)
+                        {
+                            <div class="align-self-start">
+                                <div class="container">
+                                    <input type="checkbox" class="row">
+                                    <a class="btn btn-neutral row" href="#">
+                                        <div id="profile" class="container file-size">
+                                            <img src="~/Icons/FilesAndFolder/@(file.Value).ico" />
+                                            <h6 class="text-truncate row">@file.Key</h6>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                }
+            }
+        }
+        else
+        {
+            <div class="alert alert-primary" role="alert">
+                Storage is empty
+            </div>
+        }
+    }
+</div>
+<iframe style="border-style: none;"
+        src="https://docs.google.com/viewer?url=https://s3.amazonaws.com/scotchio/First-Node-App.pdf &embedded=true" height="390"
+        width="400"></iframe>

@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home – CloudStorage</title>
+    @* @Styles.Render("~/Content/css") *@
+    @* @Scripts.Render("~/bundles/modernizr") *@
+</head>
+
+<body>
+    <nav class="navbar navbar-height0 navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/Home">
+            <img src="~/Icons/logo-small.png" width="30" height="30" class="d-inline-block align-top" alt="">
+            CloudeStorage
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse ml-5 justify-content-between" id="navbarNavAltMarkup">
+
+            <div class="ml-2 navbar-nav">
+                <a class="mx-2 mh-100" href="#">
+                    <img src="~/Icons/baseline-cloud_download-24px.svg" />
+                </a>
+                <a class="mx-2 mh-100" href="#">
+                    <img src="~/Icons/baseline-cloud_upload-24px.svg" />
+                </a>
+            </div>
+
+            <!--RIGHT PART OF NAVBAR   
+                                    -->
+            <div class="navbar-nav">
+                <div class="navbar-nav border-left border-right border-primary rounded">
+                    <a class="mx-2 nav-item nav-link text-white" href="/Manage/Index">
+                        Иван Бесчетников
+                        <img src="~/Icons/accountbox-24px.svg" class="mx-2" />
+                    </a>
+                </div>
+
+                <a class="navbar-nav px-3" href="/Account/LogOff">
+                    <img src="~/Icons/log_off-24px.svg" />
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="body-content background">
+        @RenderBody()
+    </div>
+
+    <div>@RenderSection("UserFiles", required: false)</div>
+
+    <footer>
+        <p>&copy; @DateTime.Now.Year - Cloud Service</p>
+    </footer>
+
+    @* @Scripts.Render("~/bundles/jquery") *@
+    @* @Scripts.Render("~/bundles/bootstrap") *@
+    @RenderSection("scripts", required: false)
+</body>
+
+</html>
