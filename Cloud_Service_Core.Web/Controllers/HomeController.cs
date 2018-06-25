@@ -12,7 +12,15 @@ namespace Cloud_Service_Core.Web.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            if (!HttpContext.User.Identity.IsAuthenticated)
+            {
+                return View("~/Views/Account/Login.cshtml");
+            }
+
+            //  to correct
+            var name = HttpContext.User.Identity.Name;
+
+            return RedirectToAction("DisplayFiles", "File", new { folder = name });
         }
 
         public IActionResult About()
