@@ -1,0 +1,10 @@
+{
+  "name": "Cloud_Service_Core.Web",
+  "version": "0.0.1",
+  "dependencies": {
+    "grunt": "1.0.1",
+    "grunt-contrib-copy": "1.0.0",
+    "bootstrap": "4.1.1",
+    "jquery": "3.3.1"
+  }
+}
