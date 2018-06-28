@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Cloud_Service_Core.Web.Models;
+using Microsoft.Extensions.Configuration;
 
 namespace Cloud_Service_Core.Web.Controllers
 {
@@ -12,9 +13,11 @@ namespace Cloud_Service_Core.Web.Controllers
     {
         public IActionResult Index()
         {
+            //var vr = configuration["Movies:ServiceApiKey"];
+
             if (!HttpContext.User.Identity.IsAuthenticated)
             {
-                return View("~/Views/Account/Login.cshtml");
+                return View("~/Views/Account/Login_.cshtml");
             }
 
             //  to correct

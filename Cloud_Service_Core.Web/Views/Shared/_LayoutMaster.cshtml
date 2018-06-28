@@ -5,8 +5,14 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home – CloudStorage</title>
-    @* @Styles.Render("~/Content/css") *@
-    @* @Scripts.Render("~/bundles/modernizr") *@
+
+    <environment include="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="~/css/app.css" />
+    </environment>
+    <environment include="Development">
+        <script src="~/lib/jquery/jquery.min.js"></script>
+    </environment>
 </head>
 
 <body>
@@ -15,12 +21,11 @@
             <img src="~/Icons/logo-small.png" width="30" height="30" class="d-inline-block align-top" alt="">
             CloudeStorage
         </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
+                aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-
         <div class="collapse navbar-collapse ml-5 justify-content-between" id="navbarNavAltMarkup">
-
             <div class="ml-2 navbar-nav">
                 <a class="mx-2 mh-100" href="#">
                     <img src="~/Icons/baseline-cloud_download-24px.svg" />
@@ -30,8 +35,7 @@
                 </a>
             </div>
 
-            <!--RIGHT PART OF NAVBAR   
-                                    -->
+            <!-- Right part of navbar -->
             <div class="navbar-nav">
                 <div class="navbar-nav border-left border-right border-primary rounded">
                     <a class="mx-2 nav-item nav-link text-white" href="/Manage/Index">
@@ -56,10 +60,5 @@
     <footer>
         <p>&copy; @DateTime.Now.Year - Cloud Service</p>
     </footer>
-
-    @* @Scripts.Render("~/bundles/jquery") *@
-    @* @Scripts.Render("~/bundles/bootstrap") *@
-    @RenderSection("scripts", required: false)
 </body>
-
 </html>

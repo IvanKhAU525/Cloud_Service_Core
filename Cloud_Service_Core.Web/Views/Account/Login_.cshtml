@@ -1,0 +1,54 @@
+﻿@using Cloud_Service_Core.Web.Models
+@model LoginViewModel
+@{
+    ViewBag.Title = "Log in";
+    Layout = "~/Views/Shared/_LayoutEntrance.cshtml";
+}
+
+<div class="container">
+    <div class="loginAndRegister col align-self-lg-center">
+        <section id="loginForm">
+            @using (Html.BeginForm("Login", "Account", new { ViewBag.ReturnUrl }, FormMethod.Post, false, new { @class = "form-signin", role = "form" }))
+            {
+
+                <img class="mb-4" src="~/Icons/logo-big.png" />
+
+                @Html.AntiForgeryToken()
+
+                <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                @Html.LabelFor(m => m.Email, new { @class = "sr-only", @for = "inputEmail" })
+                @Html.TextBoxFor(m => m.Email, new { @class = "form-control", id = "inputEmail", placeholder = "Email", type = "Email" })
+                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+
+                @Html.LabelFor(m => m.Password, new { @class = "sr-only", @for = "inputPassword" })
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control", id = "inputPassword", placeholder = "Password" })
+                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+
+                <div class="form-group">
+                    @Html.CheckBoxFor(m => m.RememberMe)
+                    @Html.LabelFor(m => m.RememberMe)
+                </div>
+
+                <input type="submit" value="Sign in" class="btn btn-lg btn-primary btn-block" />
+
+                <div>
+                    @Html.ActionLink("Register as a new user", "Register", "Account")
+                </div>
+                @Html.ActionLink("Forgot your password?", "Home")
+            }
+
+            <section id="socialLoginForm" class="form-signin">
+                @*@Html.Partial("/Views/Account/_ExternalLoginsListPartial.cshtml", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })*@
+            </section>
+        </section>
+
+    </div>
+</div>
+
+
+@*@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}*@

@@ -37,7 +37,20 @@ namespace Cloud_Service_Core.Web.Controllers
             /*    if (folder != HttpContext.User.Identity.Name) { Session["path"] += $"/{folder}"; }    */
 
             // Create object for stroing types of files
-            var files = new FilesNFolders();
+            var files = new FilesNFolders() {
+                Files = new List<Dictionary<string, string>> { new Dictionary<string, string>
+            {
+                ["file_1"] = "docx",
+                ["file_2"] = "docx",
+                ["file_3"] = "docx",
+                ["file_4"] = "xlsx",
+                ["file_5"] = "pptx",
+                ["file_6"] = "txt",
+                ["file_7"] = "unknown"
+            } },
+                Directories = new List<string[]> {
+                    new string[] { "Folder_1", "Folder_2", "Folder_3", "Folder_4", "Folder_5" } }
+            };
 
             // Connecting to ftp-server and getting files and folders
 //            try
