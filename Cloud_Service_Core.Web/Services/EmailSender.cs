@@ -17,6 +17,7 @@ namespace Cloud_Service_Core.Web.Services
             var emailMessage = new MimeMessage();
 
             emailMessage.From.Add(new MailboxAddress("Cloud Service", "waffentragerua@gmail.com"));
+            emailMessage.Subject = "Confirm account";
             emailMessage.To.Add(new MailboxAddress("", email));
             emailMessage.Body = new TextPart(MimeKit.Text.TextFormat.Html)
             {
@@ -28,7 +29,6 @@ namespace Cloud_Service_Core.Web.Services
                 await client.ConnectAsync("smtp.gmail.com", 25);
                 await client.AuthenticateAsync("waffentragerua@gmail.com", "102182165LFA_10");
                 await client.SendAsync(emailMessage);
-
                 await client.DisconnectAsync(true);
             }
         }
