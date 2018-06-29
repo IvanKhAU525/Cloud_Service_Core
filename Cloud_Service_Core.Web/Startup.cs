@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Cloud_Service_Core.Web.Data;
 using Cloud_Service_Core.Web.Models;
 using Cloud_Service_Core.Web.Services;
+using Microsoft.AspNetCore.Authentication.Google;
 
 namespace Cloud_Service_Core.Web
 {
@@ -32,6 +33,23 @@ namespace Cloud_Service_Core.Web
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
+
+            services.AddAuthentication()
+                .AddFacebook(facebookOptions =>
+                {
+                    facebookOptions.AppId = Configuration["Authentication:Facebook:AppId"];
+                    facebookOptions.AppSecret = Configuration["Authentication:Facebook:AppSecret"];
+                })
+                .AddGoogle(googleOptions =>
+                {
+                    googleOptions.ClientId = Configuration["Authentication:Google:ClientId"];
+                    googleOptions.ClientSecret = Configuration["Authentication:Google:ClientSecret"];
+                })
+                .AddMicrosoftAccount(microsoftOptions =>
+                {
+                    microsoftOptions.ClientId = Configuration["Authentication:Microsoft:ClientId"];
+                    microsoftOptions.ClientSecret = Configuration["Authentication:Microsoft:ClientSecret"];
+                });
 
             // Add application services.
             services.AddTransient<IEmailSender, EmailSender>();
