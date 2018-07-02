@@ -4,6 +4,8 @@
     <UserSecretsId>aspnet-Cloud_Service_Core.Web-F3DA8BF1-FF75-4F99-BC0E-BC38B05816F6</UserSecretsId>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="bootstrap" Version="4.1.1" />
+    <PackageReference Include="MailKit" Version="2.0.4" />
     <PackageReference Include="Grunt" Version="0.1.13" />
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.8" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.0.3" PrivateAssets="All" />
