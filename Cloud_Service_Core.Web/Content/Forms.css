@@ -73,6 +73,12 @@ a {
     color: white;
 }
 
+.fa-microsoft {
+    background: #b8d1dd;
+    color: white;
+    content: url("microsoft.svg");
+}
+
 .socialmediaicons{
     padding: 0;
 }
@@ -83,7 +89,12 @@ a {
 }
 
 .socialmediaicons .fa-google {
-    background: #dd4b39;
+     background: #dd4b39;
+     color: white;
+ }
+
+.socialmediaicons .fa-microsoft {
+    background: #b8d1dd;
     color: white;
 }
 

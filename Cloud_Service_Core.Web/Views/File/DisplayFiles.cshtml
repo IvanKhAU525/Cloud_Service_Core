@@ -20,12 +20,12 @@
                         @foreach (var directory in directories)
                         {
                             <div class="align-self-start">
-                                <div class="container">  @*vis-chckbx*@
+                                <div class="container">  
                                     <input type="checkbox" class="row">
-                                    <a class="btn btn-neutral row" href="DisplayFiles?folder=@directory">
+                                    <a class="btn btn-neutral row" href="DisplayFiles?folder=@directory.Substring(1, directory.IndexOf('_') - 1)">
                                         <div id="profile" class="container file-size">
                                             <img class="row" src="~/Icons/FilesAndFolder/folder.ico" />
-                                            <h6 class="text-truncate row">@directory</h6>
+                                            <h6 class="text-truncate row">@directory.Substring(directory.IndexOf('_') + 1)</h6>
                                         </div>
                                     </a>
                                 </div>
@@ -66,6 +66,3 @@
         }
     }
 </div>
-<iframe style="border-style: none;"
-        src="https://docs.google.com/viewer?url=https://s3.amazonaws.com/scotchio/First-Node-App.pdf &embedded=true" height="390"
-        width="400"></iframe>

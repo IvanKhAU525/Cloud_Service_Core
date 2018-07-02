@@ -44,9 +44,16 @@
                     </a>
                 </div>
 
-                <a class="navbar-nav px-3" href="/Account/LogOff">
-                    <img src="~/Icons/log_off-24px.svg" />
-                </a>
+                @* <a asp-area="" asp-controller="Account" asp-action="Logout" method="post" class="navbar-nav px-3"> *@
+                @*     <img src="~/Icons/log_off-24px.svg" /> *@
+                @* </a> *@
+                
+                <form asp-area="" asp-controller="Account" asp-action="Logout" method="post" id="logoutForm" class="navbar-right">
+                    <button type="submit" class="btn px-3">
+                        <img src="~/Icons/log_off-24px.svg" />
+                    </button>
+                </form>
+                
             </div>
         </div>
     </nav>

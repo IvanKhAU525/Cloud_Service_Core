@@ -12,7 +12,7 @@
     }
     else
     {
-        <form asp-action="ExternalLogin" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post", asp-antiforgery="true">
+        <form asp-controller="Account" asp-action="ExternalLogin" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post", asp-antiforgery="true">
             <div class="container-fluid" id="socialLoginList">
                 <div class="row">
                     @foreach (var provider in loginProviders)
