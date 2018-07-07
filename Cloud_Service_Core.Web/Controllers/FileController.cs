@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.Extensions.Logging;
 using Microsoft.Rest;
+using Newtonsoft.Json;
 using Org.BouncyCastle.Asn1.Cms;
 
 namespace Cloud_Service_Core.Web.Controllers
@@ -38,6 +39,12 @@ namespace Cloud_Service_Core.Web.Controllers
             if (HttpContext.User.Identity.IsAuthenticated == false) { return View("~/Views/Account/Login_.cshtml"); }
 
             return View(_files.GetFiles(id));
+        }
+        
+        //GET: GetRandomFile
+        public JsonResult GetFile()
+        {
+            return Json(_files.GetRandomFile(), new JsonSerializerSettings());
         }
     }
     
@@ -166,5 +173,7 @@ namespace Cloud_Service_Core.Web.Controllers
                 return _files[0];
             }
         }
+
+        public KeyValuePair<string, string> GetRandomFile() => new KeyValuePair<string, string>($"file_{new Random().Next(1000)}", ".docx");
     }
 }

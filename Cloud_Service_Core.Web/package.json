@@ -6,6 +6,7 @@
     "grunt-contrib-copy": "1.0.0",
     "grunt-contrib-cssmin": "2.2.1",
     "bootstrap": "4.1.1",
-    "jquery": "3.3.1"
+    "jquery": "3.3.1",
+    "jquery-ajax-unobtrusive": "3.2.4"
   }
 }

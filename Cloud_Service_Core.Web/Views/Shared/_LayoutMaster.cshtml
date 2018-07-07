@@ -6,13 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home – CloudStorage</title>
 
-    <environment include="Development">
-        <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.min.css" />
-        <link rel="stylesheet" href="~/css/app.css" />
-    </environment>
-    <environment include="Development">
-        <script src="~/lib/jquery/jquery.min.js"></script>
-    </environment>
+    @await Html.PartialAsync("~/Views/Shared/JSCSSLibs.cshtml")
 </head>
 
 <body>
@@ -47,13 +41,12 @@
                 @* <a asp-area="" asp-controller="Account" asp-action="Logout" method="post" class="navbar-nav px-3"> *@
                 @*     <img src="~/Icons/log_off-24px.svg" /> *@
                 @* </a> *@
-                
+
                 <form asp-area="" asp-controller="Account" asp-action="Logout" method="post" id="logoutForm" class="navbar-right">
                     <button type="submit" class="btn px-3">
                         <img src="~/Icons/log_off-24px.svg" />
                     </button>
                 </form>
-                
             </div>
         </div>
     </nav>
@@ -62,10 +55,10 @@
         @RenderBody()
     </div>
 
-    <div>@RenderSection("UserFiles", required: false)</div>
-
     <footer>
         <p>&copy; @DateTime.Now.Year - Cloud Service</p>
     </footer>
+
+    @await Html.PartialAsync("~/Views/Shared/UserScripts.cshtml")
 </body>
 </html>

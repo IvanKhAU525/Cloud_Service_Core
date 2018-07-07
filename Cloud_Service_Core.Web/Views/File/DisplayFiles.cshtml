@@ -7,6 +7,26 @@
 
 @Html.Partial("~/Views/Home/ContextMenu.cshtml")
 
+<button id="btn_" class="btn">Получить</button>
+<div id="paste"></div>
+
+@*<script type="text/javascript">
+        $(function () {
+            $('#btn_').bind('click',
+                function () {
+                    $.getJSON('/File/GetFile',
+                        function (data) {
+                            console.log(data);
+                            $('#paste').append('<img src="@Url.Content("~/Icons/FilesAndFolder/")' +
+                                data.Key +
+                                data.Value +
+                                '" alt="File"/>');
+                        });
+                });
+        });
+    </script>*@
+
+
 <div id="Grid" class="container">
     @{
         if (Model.Files != null ||
@@ -16,15 +36,15 @@
             {
                 foreach (var directories in Model.Directories)
                 {
-                    <div class="row">
+                    <div id="folders" class="row">
                         @foreach (var directory in directories)
                         {
                             <div class="align-self-start">
-                                <div class="container">  
+                                <div class="container">
                                     <input type="checkbox" class="row">
                                     <a class="btn btn-neutral row" href="DisplayFiles?folder=@directory.Substring(1, directory.IndexOf('_') - 1)">
                                         <div id="profile" class="container file-size">
-                                            <img class="row" src="~/Icons/FilesAndFolder/folder.ico" />
+                                            <img class="row" src="~/Icons/FilesAndFolder/folder.ico" alt="Folder" />
                                             <h6 class="text-truncate row">@directory.Substring(directory.IndexOf('_') + 1)</h6>
                                         </div>
                                     </a>
@@ -39,7 +59,7 @@
             {
                 foreach (var files in Model.Files)
                 {
-                    <div class="row">
+                    <div id="files" class="row">
                         @foreach (var file in files)
                         {
                             <div class="align-self-start">
@@ -47,7 +67,7 @@
                                     <input type="checkbox" class="row">
                                     <a class="btn btn-neutral row" href="#">
                                         <div id="profile" class="container file-size">
-                                            <img src="~/Icons/FilesAndFolder/@(file.Value).ico" />
+                                            <img src="~/Icons/FilesAndFolder/@(file.Value).ico" alt="File" />
                                             <h6 class="text-truncate row">@file.Key</h6>
                                         </div>
                                     </a>
@@ -66,3 +86,4 @@
         }
     }
 </div>
+

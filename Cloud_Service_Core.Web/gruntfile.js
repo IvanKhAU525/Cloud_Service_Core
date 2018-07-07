@@ -23,6 +23,12 @@ module.exports = function (grunt) {
                     },
                     {
                         expand: true,
+                        cwd: 'node_modules/jquery-ajax-unobtrusive/',
+                        src: 'jquery.unobtrusive-ajax.js',
+                        dest: 'wwwroot/lib/jquery/'
+                    },
+                    {
+                        expand: true,
                         cwd: 'Icons/',
                         src: '**',
                         dest: 'wwwroot/Icons/'
