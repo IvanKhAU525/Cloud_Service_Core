@@ -1,4 +1,33 @@
 ﻿@{
     ViewBag.Title = "ModalRename";
-    Layout = "~/Views/Shared/_LayoutMaster.cshtml";
 }
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#@ViewBag.Title">Modal</button>
+
+<div class="modal fade" id="@ViewBag.Title" tabindex="-1" role="dialog" aria-labelledby="Modal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Rename</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="mdlRnmForm" asp-controller="File" asp-action="Rename">
+                    <div class="form-row">
+                        <div class="form-group col-md-9">
+                            <label class="" for="fileName">To:</label>
+                            <input type="text" class="form-control" id="fileName" placeholder="New name" />
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Accept</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,4 +1,4 @@
-﻿@model Cloud_Service_Core.Web.Controllers.FilesNFolders
+﻿@model Cloud_Service_Core.Web.Controllers.FileObjects
 
 @{
     ViewBag.Title = "DisplayFiles";
@@ -6,26 +6,6 @@
 }
 
 @Html.Partial("~/Views/Home/ContextMenu.cshtml")
-
-<button id="btn_" class="btn">Получить</button>
-<div id="paste"></div>
-
-@*<script type="text/javascript">
-        $(function () {
-            $('#btn_').bind('click',
-                function () {
-                    $.getJSON('/File/GetFile',
-                        function (data) {
-                            console.log(data);
-                            $('#paste').append('<img src="@Url.Content("~/Icons/FilesAndFolder/")' +
-                                data.Key +
-                                data.Value +
-                                '" alt="File"/>');
-                        });
-                });
-        });
-    </script>*@
-
 
 <div id="Grid" class="container">
     @{
@@ -86,4 +66,3 @@
         }
     }
 </div>
-

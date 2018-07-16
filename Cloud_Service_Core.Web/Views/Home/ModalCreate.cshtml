@@ -1,10 +1,10 @@
 ﻿@{
     ViewBag.Title = "ModalCreate";
-    Layout = "~/Views/Shared/_LayoutMaster.cshtml";
 }
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#@ViewBag.Title">Modal</button>
 
 <div class="modal fade" id="@ViewBag.Title" tabindex="-1" role="dialog" aria-labelledby="ModalTitle" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLongTitle">Create</h5>
@@ -13,24 +13,43 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form>
-                    <div class="form-group">
-                        <label></label>
+                <form id="mdlCrtForm" asp-controller="File" asp-action="Create">
+                    <div class="validation" asp-validation-summary="ModelOnly"></div>
+                    <input id="chkbxMdlCrt" class="form-check-input" type="checkbox" name="IsFile" value="true" />
+                    <label class="form-check-label" for="chkbxMdlCrt">File</label>
+                    <p></p>
+
+                    <a asp-controller="File" asp-action="CreatePartial">CreatePartial</a>
+
+                    <div class="row">
+                        <div class="form-group col">
+                            <label for="FileName">Name</label>
+                            <input id="FileName" class="form-control" type="text" placeholder="Name of file or folder" data-val="true"
+                                   data-val-length="This field must be a string with a maximum length of 50."
+                                   data-val-length-max="50" data-val-required="This field is required." name="FileName" value="">
+                            <span class="field-validation-valid" data-valmsg-for="FileName" data-valmsg-replace="true"></span>
+                        </div>
+                        <div class="form-group col-md-3" id="selectMenu">
+                            <label for="selectMenu">Extension</label>
+                            <select class="form-control" name="FileExtension">
+                                <option>txt</option>
+                                <option>docx</option>
+                                <option>doc</option>
+                                <option>xlsx</option>
+                                <option>xls</option>
+                                <option>pptx</option>
+                                <option>ppt</option>
+                            </select>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="recipient-name" class="col-form-label">Recipient:</label>
-                        <input type="checkbox" class="form-control" id="recipient-name">
-                    </div>
-                    <div class="form-group">
-                        <label for="message-text" class="col-form-label">Message:</label>
-                        <textarea class="form-control" id="message-text"></textarea>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Accept</button>
                     </div>
                 </form>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
+
         </div>
     </div>
 </div>

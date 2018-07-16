@@ -29,6 +29,18 @@ module.exports = function (grunt) {
                     },
                     {
                         expand: true,
+                        cwd: 'node_modules/jquery-validation/dist/',
+                        src: 'jquery.validate.min.js',
+                        dest: 'wwwroot/lib/jquery/'
+                    },
+                    {
+                        expand: true,
+                        cwd: 'node_modules/jquery-validation-unobtrusive/dist/',
+                        src: 'jquery.validate.unobtrusive.min.js',
+                        dest: 'wwwroot/lib/jquery/'
+                    },
+                    {
+                        expand: true,
                         cwd: 'Icons/',
                         src: '**',
                         dest: 'wwwroot/Icons/'
